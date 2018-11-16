@@ -1,0 +1,28 @@
+{% if list %}
+    <head>
+        <style>
+            body{
+                background-color: gainsboro;
+            }
+        </style>
+    </head>
+    <body>
+<h1>Person detail!</h1>
+
+<ul>
+    {% for person in list %}
+    <li>
+       <p> <a href="{% url 'genericviews:detail' person.id %}">{{ person.name }}</a></p>
+
+{#    <a href="{% url 'detail' person.id %}">{{ person.name }}</a>#}
+    </li>
+
+{% endfor %}
+
+    <h3><a href="./makeentry">Click here to go entry page</a></h3>
+</ul></p>
+{#    {% endfor %}#}
+{% else %}
+<h3>No Person found</h3>
+{% endif %}
+</body>

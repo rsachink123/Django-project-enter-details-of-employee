@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Title</title>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <style>
+        body{
+            background-color: teal;
+        }
+        .container{
+            background-color: lightgreen;
+            border-radius: 10px;
+            margin-top: 40px;
+        }
+        form{
+            border: 5px;
+            border-color: burlywood;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 class="text-center">Please make entries here</h1>
+    <div class="row">
+        <div class="col-md-5">
+{#            <form action="{%  url 'genericviews:makeentry' %}" method="post">#}
+            <form action="{%  url 'genericviews:makeentry' %}" method="post">
+                {% csrf_token %}
+                {{ form }}<br>
+                <center>
+{#                    <input type="submit" value="Submit">#}
+                    <button class="btn btn-primary">Submit</button>
+                </center>
+            </form>
+
+        </div>
+        <div>
+            <img src="{% static 'images/makeentry.png' %}">
+            <h3><a href="./">Click here to go Home Page</a></h3>
+        </div>
+    </div>
+</div>
+</body>
+</html>
